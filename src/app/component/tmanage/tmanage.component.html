@@ -1,3 +1,33 @@
-<p>
-  tmanage works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <h2><i class="fa fa-calendar"></i> Time Manage</h2>
+  </div>
+  <div class="col-md-6">
+    <h5 class="pull-right text-muted"></h5>
+  </div>
+</div>
+<table *ngIf="times?.length > 0; " class="table table-striped">
+  <thead class="thead-inverse">
+  <tr>
+    <td>ID</td>
+    <td>Project Des</td>
+    <td>Time(Hours)</td>
+    <td>Day</td>
+    <td>Priority</td>
+    <td>DayOfWeek</td>
+    <td>User</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let time of times">
+    <td>{{time.$key}}</td>
+    <td>{{time.project}}</td>
+    <td>{{time.time}}</td>
+    <td>{{time.day}}</td>
+    <td>{{time.priority}}</td>
+    <td>{{time.dayofweek}}</td>
+    <td>{{time.user}}</td>
+    <td><a [routerLink]="['/tmanage/'+time.$key]" href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i>Details</a></td>
+  </tr>
+  </tbody>
+</table>

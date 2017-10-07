@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TmanageService} from '../../service/tmanage.service';
 
 @Component({
   selector: 'app-tmanage',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tmanage.component.css']
 })
 export class TmanageComponent implements OnInit {
+  times: any[];
 
-  constructor() { }
+  constructor(private tmanageService: TmanageService) { }
 
   ngOnInit() {
+    this.tmanageService.getTimes().subscribe(time => {
+      this.times = time;
+    });
   }
 
 }

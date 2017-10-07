@@ -20,6 +20,9 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { SettingsComponent } from './component/settings/settings.component';
+import { TmanageComponent } from './component/tmanage/tmanage.component';
+import { CreateComponent } from './component/tmanage/create/create.component';
+import { EditComponent } from './component/tmanage/edit/edit.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 // Services
@@ -28,17 +31,24 @@ import { AuthService } from './service/auth.service';
 import { SettingsService } from './service/settings.service';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterGuard } from './guards/register.guard';
-import { CreateComponent } from './component/tmanage/create/create.component';
-import { EditComponent } from './component/tmanage/edit/edit.component';
+import { TmanageService } from './service/tmanage.service';
+import { TmanageDetailsComponent } from './component/tmanage/tmanage-details/tmanage-details.component';
+import { TimeSliderComponent } from './component/tmanage/time-slider/time-slider.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
   {path: 'register', component: RegisterComponent, canActivate:[RegisterGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'addUser', component: AddUserComponent, canActivate:[AuthGuard]},
+  {path: 'addTime', component: CreateComponent, canActivate:[AuthGuard]},
+  {path: 'users', component: UsersComponent, canActivate:[AuthGuard]},
   {path: 'user/:id', component: UsersDetailsComponent, canActivate:[AuthGuard]},
   {path: 'edit-user/:id', component: EditUserComponent, canActivate:[AuthGuard]},
   {path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
+  {path: 'tmanage', component: TmanageComponent, canActivate:[AuthGuard]},
+  {path: 'tmanage/:id', component: TmanageDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'edit-time/:id', component: EditComponent, canActivate: [AuthGuard]},
   {path:'**', component:PageNotFoundComponent}
 ];
 
@@ -65,7 +75,11 @@ export const firebaseConfig = {
     SettingsComponent,
     PageNotFoundComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    TmanageComponent,
+    UsersComponent,
+    TmanageDetailsComponent,
+    TimeSliderComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +95,8 @@ export const firebaseConfig = {
     AuthService,
     AuthGuard,
     RegisterGuard,
-    SettingsService
+    SettingsService,
+    TmanageService
   ],
   bootstrap: [AppComponent]
 })

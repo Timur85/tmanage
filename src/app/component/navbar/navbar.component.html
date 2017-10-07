@@ -4,9 +4,15 @@
       <a class="navbar-brand" href="#">TManage</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <li *ngIf="isLoggedIn" class="nav-item">
-        <a class="nav-link" href="#" routerLink="/">Dashboard</a>
-      </li>
+      <ul class="nav navbar-nav navbar-left">
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/">Dashboard</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/users">Users</a>
+        </li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
           <a class="nav-link" href="#" routerLink="/register">Register</a>

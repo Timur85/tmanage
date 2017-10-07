@@ -5,19 +5,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-tmanage-details',
+  templateUrl: './tmanage-details.component.html',
+  styleUrls: ['./tmanage-details.component.css']
 })
-export class EditComponent implements OnInit {
+export class TmanageDetailsComponent implements OnInit {
   id: string;
-  times: Tmanage = {
-    project: '',
-    time: '',
-    day: '',
-    dayofweek: '',
-    priority: ''
-  };
+  time: Tmanage;
 
   constructor(
     public timeService: TmanageService,
@@ -32,8 +26,16 @@ export class EditComponent implements OnInit {
 
     // Get User
     this.timeService.getTime(this.id).subscribe(times => {
-      this.times = times;
+      this.time = times;
     });
+  }
+
+  onDeleteClick(){
+    if(confirm('Are you sure to delete?')) {
+      this.timeService.deleteTime(this.id);
+      this.flashMessagesService.show('Time Deleted!', {cssClass: 'alert-success', timeout: 4000});
+      this.router.navigate(['/'])
+    }
   }
 
 }
