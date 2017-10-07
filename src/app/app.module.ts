@@ -12,9 +12,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { UsersComponent } from './component/users/users.component';
-import { UsersDetailsComponent } from './component/users-details/users-details.component';
-import { AddUserComponent } from './component/add-user/add-user.component';
-import { EditUserComponent } from './component/edit-user/edit-user.component';
+import { UsersDetailsComponent } from './component/users/users-details/users-details.component';
+import { AddUserComponent } from './component/users/add-user/add-user.component';
+import { EditUserComponent } from './component/users/edit-user/edit-user.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { LoginComponent } from './component/login/login.component';
@@ -30,8 +30,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { RegisterGuard } from './guards/register.guard';
 import { CreateComponent } from './component/tmanage/create/create.component';
 import { EditComponent } from './component/tmanage/edit/edit.component';
-import { DeleteComponent } from './component/tmanage/delete/delete.component';
-import { UpdateComponent } from './component/tmanage/update/update.component';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
@@ -67,9 +65,7 @@ export const firebaseConfig = {
     SettingsComponent,
     PageNotFoundComponent,
     CreateComponent,
-    EditComponent,
-    DeleteComponent,
-    UpdateComponent
+    EditComponent
   ],
   imports: [
     BrowserModule,

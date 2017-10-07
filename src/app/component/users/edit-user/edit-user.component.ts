@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService} from '../../service/users.service';
+import { UsersService} from '../../../service/users.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Users } from '../../models/Users';
+import { Users } from '../../../models/Users';
 
 @Component({
   selector: 'app-edit-user',

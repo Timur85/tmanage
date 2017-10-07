@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { UsersService } from '../../service/users.service';
+import { UsersService } from '../../../service/users.service';
 import { Router } from '@angular/router';
-import { Users } from '../../models/Users';
+import { Users } from '../../../models/Users';
 
 @Component({
   selector: 'app-add-user',
