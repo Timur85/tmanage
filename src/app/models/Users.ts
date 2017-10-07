@@ -4,5 +4,5 @@ export interface Users {
   lastName?: string;
   email?: string;
   phone?: string;
-  access?: string
+  access?: number
 }

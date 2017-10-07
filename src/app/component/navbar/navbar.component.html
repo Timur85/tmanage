@@ -1,23 +1,28 @@
 <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Time Management</a>
+      <a class="navbar-brand" href="#">TManage</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-left">
-        <li><a [routerLink]="['/']">Dashboard</a></li>
-
-      </ul>
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a class="nav-link" href="#" routerLink="/">Dashboard</a>
+      </li>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" routerLink="/login">Login</a>
+        <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/register">Register</a>
         </li>
-        <li><a href="#" routerLink="/logout">Logout</a></li>
+        <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#">{{loggedInUser}}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/settings">Settings</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a>
+        </li>
       </ul>
     </div>
   </div>

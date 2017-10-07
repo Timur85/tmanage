@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 // AngularFire module
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -18,12 +21,28 @@ import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { SettingsComponent } from './component/settings/settings.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+
+// Services
 import { UsersService } from './service/users.service';
+import { AuthService } from './service/auth.service';
+import { SettingsService } from './service/settings.service';
+import { AuthGuard } from './guards/auth.guard';
+import { RegisterGuard } from './guards/register.guard';
+import { TmanageComponent } from './tmanage/tmanage.component';
+import { CreateComponent } from './component/tmanage/create/create.component';
+import { EditComponent } from './component/tmanage/edit/edit.component';
+import { DeleteComponent } from './component/tmanage/delete/delete.component';
+import { UpdateComponent } from './component/tmanage/update/update.component';
 
 const appRoutes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent}
+  {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate:[RegisterGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'addUser', component: AddUserComponent, canActivate:[AuthGuard]},
+  {path: 'user/:id', component: UsersDetailsComponent, canActivate:[AuthGuard]},
+  {path: 'edit-user/:id', component: EditUserComponent, canActivate:[AuthGuard]},
+  {path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
+  {path:'**', component:PageNotFoundComponent}
 ];
 
 export const firebaseConfig = {
@@ -47,17 +66,28 @@ export const firebaseConfig = {
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TmanageComponent,
+    CreateComponent,
+    EditComponent,
+    DeleteComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    FlashMessagesModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    UsersService
+    UsersService,
+    AuthService,
+    AuthGuard,
+    RegisterGuard,
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })
