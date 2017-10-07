@@ -28,7 +28,6 @@ import { AuthService } from './service/auth.service';
 import { SettingsService } from './service/settings.service';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterGuard } from './guards/register.guard';
-import { TmanageComponent } from './tmanage/tmanage.component';
 import { CreateComponent } from './component/tmanage/create/create.component';
 import { EditComponent } from './component/tmanage/edit/edit.component';
 import { DeleteComponent } from './component/tmanage/delete/delete.component';
@@ -67,7 +66,6 @@ export const firebaseConfig = {
     RegisterComponent,
     SettingsComponent,
     PageNotFoundComponent,
-    TmanageComponent,
     CreateComponent,
     EditComponent,
     DeleteComponent,
