@@ -8,6 +8,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+
 // Components import
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -24,6 +25,7 @@ import { TmanageComponent } from './component/tmanage/tmanage.component';
 import { CreateComponent } from './component/tmanage/create/create.component';
 import { EditComponent } from './component/tmanage/edit/edit.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+
 // Services
 import { UsersService } from './service/users.service';
 import { AuthService } from './service/auth.service';
@@ -36,19 +38,19 @@ import { TimeSliderComponent } from './component/tmanage/time-slider/time-slider
 
 
 const appRoutes: Routes = [
-  {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'register', component: RegisterComponent, canActivate:[RegisterGuard]},
+  {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [RegisterGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'addUser', component: AddUserComponent, canActivate:[AuthGuard]},
-  {path: 'addTime', component: CreateComponent, canActivate:[AuthGuard]},
-  {path: 'users', component: UsersComponent, canActivate:[AuthGuard]},
-  {path: 'user/:id', component: UsersDetailsComponent, canActivate:[AuthGuard]},
-  {path: 'edit-user/:id', component: EditUserComponent, canActivate:[AuthGuard]},
-  {path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
-  {path: 'tmanage', component: TmanageComponent, canActivate:[AuthGuard]},
+  {path: 'addUser', component: AddUserComponent, canActivate: [AuthGuard]},
+  {path: 'addTime', component: CreateComponent, canActivate: [AuthGuard]},
+  {path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+  {path: 'user/:id', component: UsersDetailsComponent, canActivate: [AuthGuard]},
+  {path: 'edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard]},
+  {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
+  {path: 'tmanage', component: TmanageComponent, canActivate: [AuthGuard]},
   {path: 'tmanage/:id', component: TmanageDetailsComponent, canActivate: [AuthGuard]},
   {path: 'edit-time/:id', component: EditComponent, canActivate: [AuthGuard]},
-  {path:'**', component:PageNotFoundComponent}
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 export const firebaseConfig = {
