@@ -30,8 +30,8 @@ export class TmanageDetailsComponent implements OnInit {
     });
   }
 
-  onDeleteClick(){
-    if(confirm('Are you sure to delete?')) {
+  onDeleteClick() {
+    if (confirm('Are you sure to delete?')) {
       this.timeService.deleteTime(this.id);
       this.flashMessagesService.show('Time Deleted!', {cssClass: 'alert-success', timeout: 4000});
       this.router.navigate(['/'])

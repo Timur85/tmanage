@@ -24,7 +24,6 @@ import { TmanageComponent } from './component/tmanage/tmanage.component';
 import { CreateComponent } from './component/tmanage/create/create.component';
 import { EditComponent } from './component/tmanage/edit/edit.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
-
 // Services
 import { UsersService } from './service/users.service';
 import { AuthService } from './service/auth.service';

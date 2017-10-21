@@ -1,5 +1,5 @@
-export interface Settings{
-    allowRegistration?:boolean;
-    disableBalanceOnAdd?:boolean;
-    disableBalanceOnEdit?:boolean;
+export interface Settings {
+    allowRegistration?: boolean;
+    disableBalanceOnAdd?: boolean;
+    disableBalanceOnEdit?: boolean;
 }

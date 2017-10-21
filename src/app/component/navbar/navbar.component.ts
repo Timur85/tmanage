@@ -11,9 +11,9 @@ import {SettingsService} from '../../service/settings.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn:boolean;
-  loggedInUser:string;
-  showRegister:boolean;
+  isLoggedIn: boolean;
+  loggedInUser: string;
+  showRegister: boolean;
 
   constructor(
     private authService: AngularFireAuth,
@@ -35,9 +35,9 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  onLogoutClick(){
+  onLogoutClick() {
     this.authService.auth.signOut();
-    this.flashMessagesService.show('You are logged out', {cssClass:'alert-success', timeout:4000});
+    this.flashMessagesService.show('You are logged out', {cssClass: 'alert-success', timeout: 4000});
     this.router.navigate(['/login']);
   }
 }

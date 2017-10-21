@@ -19,19 +19,19 @@ export class CreateComponent implements OnInit {
   };
 
   dayofweek = [
-    {id: 1, name: "Mon"},
-    {id: 2, name: "Tue"},
-    {id: 3, name: "Wed"},
-    {id: 4, name: "Thu"},
-    {id: 5, name: "Fri"},
-    {id: 6, name: "Sat"},
+    {id: 1, name: 'Mon'},
+    {id: 2, name: 'Tue'},
+    {id: 3, name: 'Wed'},
+    {id: 4, name: 'Thu'},
+    {id: 5, name: 'Fri'},
+    {id: 6, name: 'Sat'},
   ];
   selectedValue = null;
 
   priorities = [
-    {id: 1, pr: "Low"},
-    {id: 2, pr: "Med"},
-    {id: 3, pr: "High"}
+    {id: 1, pr: 'Low'},
+    {id: 2, pr: 'Med'},
+    {id: 3, pr: 'High'}
   ];
   selectedPriority = null;
 
@@ -45,8 +45,8 @@ export class CreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit({value, valid}:{value: Tmanage, valid: boolean}) {
-    if(!valid) {
+  onSubmit({value, valid}: {value: Tmanage, valid: boolean}) {
+    if (!valid) {
       this.flashMessagesService.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 4000});
       this.router.navigate(['addTime']);
     } else {

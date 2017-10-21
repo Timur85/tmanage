@@ -19,8 +19,8 @@ export class AddUserComponent implements OnInit {
   }
 
   access = [
-    {id: 1, name: "admin"},
-    {id: 2, name: "user"}
+    {id: 1, name: 'admin'},
+    {id: 2, name: 'user'}
   ];
   selectedValue = null;
 
@@ -33,8 +33,8 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit({value, valid}:{value: Users, valid: boolean}) {
-    if(!valid) {
+  onSubmit({value, valid}: {value: Users, valid: boolean}) {
+    if (!valid) {
       this.flashMessagesService.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 4000});
       this.router.navigate(['addUser']);
     } else {

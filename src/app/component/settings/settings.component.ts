@@ -10,21 +10,21 @@ import { Settings } from '../../models/Settings';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  settings:Settings;
+  settings: Settings;
 
   constructor(
     public settingsService: SettingsService,
-    public flashMessagesService:FlashMessagesService,
-    public router:Router
+    public flashMessagesService: FlashMessagesService,
+    public router: Router
   ) { }
 
   ngOnInit() {
     this.settings = this.settingsService.getSettings();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.settingsService.changeSettings(this.settings);
-    this.flashMessagesService.show('Settings saved', {cssClass:'alert-success', timeout: 4000});
+    this.flashMessagesService.show('Settings saved', {cssClass: 'alert-success', timeout: 4000});
     this.router.navigate(['/settings']);
   }
 

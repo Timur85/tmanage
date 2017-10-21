@@ -32,8 +32,8 @@ export class UsersDetailsComponent implements OnInit {
 
   }
 
-  onDeleteClick(){
-    if(confirm('Are you sure to delete?')) {
+  onDeleteClick() {
+    if (confirm('Are you sure to delete?')) {
       this.userService.deleteUser(this.id);
       this.flashMessagesService.show('User Deleted!', {cssClass: 'alert-success', timeout: 4000});
       this.router.navigate(['/'])

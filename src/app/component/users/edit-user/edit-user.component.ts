@@ -12,10 +12,10 @@ import { Users } from '../../../models/Users';
 export class EditUserComponent implements OnInit {
   id: string;
   users: Users = {
-    firstName:'',
+    firstName: '',
     lastName: '',
-    email:'',
-    phone:''
+    email: '',
+    phone: ''
   };
 
   constructor(
@@ -35,8 +35,8 @@ export class EditUserComponent implements OnInit {
     });
   }
 
-  onSubmit({value, valid}:{value: Users, valid: boolean}) {
-    if(!valid) {
+  onSubmit({value, valid}: {value: Users, valid: boolean}) {
+    if (!valid) {
       this.flashMessagesService.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 4000});
       this.router.navigate(['edit-user/' + this.id]);
     } else {

@@ -9,12 +9,12 @@ import {FlashMessagesService} from 'angular2-flash-messages';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email:string;
-  password:string;
+  email: string;
+  password: string;
 
   constructor(
     private authService: AngularFireAuth,
-    private router:Router,
+    private router: Router,
     private flashMessagesService: FlashMessagesService
   ) { }
 
